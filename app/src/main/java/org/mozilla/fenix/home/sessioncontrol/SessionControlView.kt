@@ -129,12 +129,6 @@ private fun privateModeAdapterItems() = listOf(AdapterItem.PrivateBrowsingDescri
 private fun onboardingAdapterItems(onboardingState: OnboardingState): List<AdapterItem> {
     val items: MutableList<AdapterItem> = mutableListOf(AdapterItem.OnboardingHeader)
 
-    items.addAll(
-        listOf(
-            AdapterItem.OnboardingThemePicker,
-            AdapterItem.OnboardingToolbarPositionPicker,
-        ),
-    )
     // Customize FxA items based on where we are with the account state:
     items.addAll(
         when (onboardingState) {
@@ -145,6 +139,12 @@ private fun onboardingAdapterItems(onboardingState: OnboardingState): List<Adapt
             }
             OnboardingState.SignedIn -> listOf()
         },
+    )
+    items.addAll(
+        listOf(
+            AdapterItem.OnboardingThemePicker,
+            AdapterItem.OnboardingToolbarPositionPicker,
+        ),
     )
 
     items.addAll(
